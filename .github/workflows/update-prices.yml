@@ -15,14 +15,20 @@ jobs:
   prices:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Fetch + write prices.json
         run: |
           IDS="bitcoin,ethereum,solana,ripple,dogecoin"
-          URL="https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${IDS}&order=market_cap_desc&price_change_percentage=24h"
+          URL="https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${IDS}&order=market_cap_desc&price_change_percentage=24h&sparkline=true"
           curl -sf "$URL" \
-            | jq '{updated:(now|floor), coins:[.[]|{sym:(.symbol|ascii_upcase), name:.name, price:.current_price, change:(.price_change_percentage_24h // 0)}]}' \
+            | jq '{updated:(now|floor), source:"CoinGecko", coins:[.[]|{
+                sym:(.symbol|ascii_upcase),
+                name:.name,
+                price:.current_price,
+                change:(.price_change_percentage_24h // 0),
+                spark:[ ((.sparkline_in_7d.price // [])[-24:][]) | (.*100000|round)/100000 ]
+              }]}' \
             > prices.json
           echo "--- wrote prices.json ---"
           cat prices.json
