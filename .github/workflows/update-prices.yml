@@ -1,0 +1,36 @@
+# Save this in your repo as:  .github/workflows/update-prices.yml
+# It fetches crypto prices on GitHub's servers and commits them to prices.json,
+# which your Starfall ticker then reads from raw.githubusercontent.com.
+
+name: update-crypto
+on:
+  schedule:
+    - cron: "*/5 * * * *"     # every 5 minutes (GitHub may delay this a few min)
+  workflow_dispatch:           # lets you run it manually from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  prices:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch + write prices.json
+        run: |
+          IDS="bitcoin,ethereum,solana,ripple,dogecoin"
+          URL="https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${IDS}&order=market_cap_desc&price_change_percentage=24h"
+          curl -sf "$URL" \
+            | jq '{updated:(now|floor), coins:[.[]|{sym:(.symbol|ascii_upcase), name:.name, price:.current_price, change:(.price_change_percentage_24h // 0)}]}' \
+            > prices.json
+          echo "--- wrote prices.json ---"
+          cat prices.json
+
+      - name: Commit
+        run: |
+          git config user.name "crypto-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add prices.json
+          git commit -m "update prices" || exit 0
+          git push
