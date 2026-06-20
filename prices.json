@@ -1,0 +1,35 @@
+{
+  "updated": 1781985299,
+  "coins": [
+    {
+      "sym": "BTC",
+      "name": "Bitcoin",
+      "price": 63856,
+      "change": 1.31171
+    },
+    {
+      "sym": "ETH",
+      "name": "Ethereum",
+      "price": 1727.34,
+      "change": 1.56547
+    },
+    {
+      "sym": "XRP",
+      "name": "XRP",
+      "price": 1.14,
+      "change": 1.14194
+    },
+    {
+      "sym": "SOL",
+      "name": "Solana",
+      "price": 71.75,
+      "change": 4.19849
+    },
+    {
+      "sym": "DOGE",
+      "name": "Dogecoin",
+      "price": 0.083258,
+      "change": 0.38198
+    }
+  ]
+}
