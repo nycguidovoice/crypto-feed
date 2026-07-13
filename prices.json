@@ -1,12 +1,12 @@
 {
-  "updated": 1783968892,
+  "updated": 1783973201,
   "source": "CoinGecko",
   "coins": [
     {
       "sym": "BTC",
       "name": "Bitcoin",
-      "price": 62009,
-      "change": -3.25103,
+      "price": 62227,
+      "change": -3.02826,
       "spark": [
         64037.39022,
         64109.22648,
@@ -37,8 +37,8 @@
     {
       "sym": "ETH",
       "name": "Ethereum",
-      "price": 1764.07,
-      "change": -3.09125,
+      "price": 1773.26,
+      "change": -2.50037,
       "spark": [
         1817.38129,
         1820.33838,
@@ -69,8 +69,8 @@
     {
       "sym": "XRP",
       "name": "XRP",
-      "price": 1.06,
-      "change": -3.57054,
+      "price": 1.066,
+      "change": -3.01327,
       "spark": [
         1.09785,
         1.09925,
@@ -101,8 +101,8 @@
     {
       "sym": "SOL",
       "name": "Solana",
-      "price": 74.88,
-      "change": -3.43806,
+      "price": 75.14,
+      "change": -3.15862,
       "spark": [
         77.35825,
         77.54992,
@@ -133,8 +133,8 @@
     {
       "sym": "DOGE",
       "name": "Dogecoin",
-      "price": 0.071325,
-      "change": -3.07821,
+      "price": 0.071774,
+      "change": -2.41672,
       "spark": [
         0.07338,
         0.07356,
