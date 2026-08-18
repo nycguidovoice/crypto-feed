@@ -1,11 +1,11 @@
 {
-  "updated": 1787074541,
+  "updated": 1787075846,
   "source": "CoinGecko",
   "coins": [
     {
       "sym": "BTC",
       "name": "Bitcoin",
-      "price": 64767,
+      "price": 64667,
       "change": 1.0,
       "spark": [
         64047.10278,
@@ -37,7 +37,7 @@
     {
       "sym": "ETH",
       "name": "Ethereum",
-      "price": 1913.61,
+      "price": 1911.82,
       "change": 0.3,
       "spark": [
         1905.10344,
@@ -133,7 +133,7 @@
     {
       "sym": "DOGE",
       "name": "Dogecoin",
-      "price": 0.070258,
+      "price": 0.070239,
       "change": -0.1,
       "spark": [
         0.07029,
